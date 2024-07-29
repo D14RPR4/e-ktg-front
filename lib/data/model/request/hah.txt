@@ -1,0 +1,538 @@
+@startuml
+class AuthLocalDatasource {
+  + saveAuthData()
+  + removeAuthData()
+  + getAuthData()
+}
+class AuthRemoteDatasource {
+  + register()
+  + validate()
+  + logout()
+  + login()
+}
+class BeritaRemoteDatasource {
+  + getAllBerita()
+}
+class DesaRemoteDatasource {
+  + getAllDesa()
+}
+class FasilitasHotelRemoteDatasource {
+  + getAllHotel()
+  + likePost()
+  + getAllCommentHotel()
+  + postCommentHotel()
+  + deleteCommentHotel()
+}
+class FasilitasRestoRemoteDatasource {
+  + getAllResto()
+  + likePost()
+  + getAllCommentResto()
+  + postCommentResto()
+  + deleteCommentResto()
+}
+class FasilitasTravelRemoteDatasource {
+  + getAllTravel()
+  + likePost()
+  + getAllCommentTravel()
+  + postCommentTravel()
+  + deleteCommentTravel()
+}
+class KalenderEventRemoteDatasource {
+  + getAllKalender()
+}
+class OnboardingLocalDatasource {
+  + saveOnboadingPassed()
+  + getIsFirstTime()
+}
+class WisataAlamRemoteDatasource {
+  + getAllAlam()
+  + likePost()
+  + getAllCommentAlam()
+  + postCommentAlam()
+  + deleteCommentAlam()
+}
+class WisataBuatanRemoteDatasource {
+  + getAllBuatan()
+  + likePost()
+  + getAllCommentBuatan()
+  + postCommentBuatan()
+  + deleteCommentBuatan()
+}
+class WisataBudayaRemoteDatasource {
+  + getAllBudaya()
+  + likePost()
+  + getAllCommentBudaya()
+  + postCommentBudaya()
+  + deleteCommentBudaya()
+}
+class LoginRequestModel {
+  - email: String
+  - password: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class RegisterRequestModel {
+  - name: String
+  - email: String
+  - password: String
+  - passwordConfirmation: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class ValidateRequestModel {
+  - email: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class CommentAtraksiRequestModel {
+  - comment:String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class CommentAtraksiResponseModel {
+  - message: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class CommentFasilitasRequestModel {
+  - comment:String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class CommentFasilitasResponseModel {
+  - message: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class DeleteCommentAtraksiResponseModel {
+  - message: String
+  + from()
+  + to()
+  + fromMap()
+  + toMap()
+}
+class DeleteCommentFasilitasResponseModel {
+  - message: String
+  + from()
+  + to()
+  + fromMap()
+  + toMap()
+}
+class GetCommentAtraksiResponseModel {
+  - comment: List<Comment>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Comment {
+  - id: String
+  - userId: String
+  - postId: String
+  - comment: String
+  - createdAt: DateTime
+  - updatedAt: DateTime
+  - user: User
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+
+
+class GetCommentFasilitasResponseModel {
+  - comment: List<Comment>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class User {
+  - id: int
+  - name: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class LikeAtraksiResponseModel {
+  - message: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class LikeFasilitasResponseModel {
+  - message: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class AuthResponseModel {
+  - accessToken: String
+  - user: User
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class ValidateResponseModel {
+  - message: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class BeritaResponseModel {
+  - data: List<Berita>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Berita {
+  - id: String
+  - judul: String
+  - deskripsi: String
+  - foto: String
+  - createdAt: DateTime
+  - updatedAt: DateTime
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class DesaWisataResponseModel {
+  - data: List<Desa>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Desa {
+  - id: String
+  - namaDesaWisata: String
+  - linkWisata: String
+  - deskripsi: String
+  - linkJadesta: String
+  - foto: String
+  - foto1: String
+  - foto2: String
+  - lat: String
+  - lng: String
+  - createdAt: DateTime
+  - updatedAt: DateTime
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class FasilitasHotelResponseModel {
+  - data: List<Hotel>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Hotel {
+  - id: String
+  - idKategori: String
+  - idUser: String
+  - nama: String
+  - alamat: String
+  - fasilitas: String
+  - deskripsi: String
+  - namaPengelola: String
+  - noPengelola: String
+  - hariBuka: String
+  - jamBuka: String
+  - jamTutup: String
+  - foto: String
+  - foto1: String
+  - foto2: String
+  - sumberFoto: String
+  - link: String
+  - rating: int
+  - lat: String
+  - lng: String
+  - rekomendasi: int
+  - status: String
+  - createdAt: DateTime
+  - updatedAt: DateTime
+  - commentFasilitasCount: int
+  - likeFasilitasCount: int
+  - user: User
+  - selfLiked: bool?
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class FasilitasRestoResponseModel {
+  - data: List<Resto>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Resto {
+  - id: String
+  - idKategori: String
+  - idUser: String
+  - nama: String
+  - alamat: String
+  - fasilitas: String
+  - deskripsi: String
+  - namaPengelola: String
+  - noPengelola: String
+  - hariBuka: String
+  - jamBuka: String
+  - jamTutup: String
+  - foto: String
+  - foto1: String
+  - foto2: String
+  - sumberFoto: String
+  - link: String
+  - rating: int
+  - lat: String
+  - lng: String
+  - rekomendasi: int
+  - status: String
+  - createdAt: DateTime
+  - updatedAt: DateTime
+  - commentFasilitasCount: int
+  - likeFasilitasCount: int
+  - user: User
+  - selfLiked: bool?
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class FasilitasTravelResponseModel {
+  - data: List<Travel>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Travel {
+  - id: String
+  - idKategori: String
+  - idUser: String
+  - nama: String
+  - alamat: String
+  - fasilitas: String
+  - deskripsi: String
+  - namaPengelola: String
+  - noPengelola: String
+  - hariBuka: String
+  - jamBuka: String
+  - jamTutup: String
+  - foto: String
+  - foto1: String
+  - foto2: String
+  - sumberFoto: String
+  - link: String
+  - rating: int
+  - lat: String
+  - lng: String
+  - rekomendasi: int
+  - status: String
+  - createdAt: DateTime
+  - updatedAt: DateTime
+  - commentFasilitasCount: int
+  - likeFasilitasCount: int
+  - user: User
+  - selfLiked: bool?
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+
+class KalenderResponseModel {
+  - data: List<Kalender>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Kalender {
+  - id: String
+  - nama: String
+  - eventWisatas: List<EventWisata>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class EventWisata {
+  - nama: String
+  - deskripsi: String
+  - linkEvent: String
+  - penyelenggaraEvent: String
+  - tempat: String
+  - tanggal: String
+  - transportasi: String
+  - foto: String
+  - foto1: String
+  - foto2: String
+  - sumberFoto: String
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class WisataAlamResponseModel {
+  - data: List<Alam>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Alam {
+  - id: String
+  - idKategori: String
+  - idUser: String
+  - nama: String
+  - alamat: String
+  - atraksiWisata: String
+  - fasilitas: String
+  - destinasi: String
+  - deskripsi: String
+  - namaPengelola: String
+  - noPengelola: String
+  - hariBuka: String
+  - jamBuka: String
+  - jamTutup: String
+  - foto: String
+  - sumberFoto: String
+  - lat: String
+  - lng: String
+  - rekomendasi: int
+  - status: String
+  - createdAt: DateTime
+  - updatedAt: DateTime
+  - commentAtraksiCount: int
+  - likeAtraksiCount: int
+  - user: User
+  - selfLiked: bool?
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+class WisataBuatanResponseModel {
+  - data: List<Buatan>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Buatan {
+  - id: String
+  - idKategori: String
+  - idUser: String
+  - nama: String
+  - alamat: String
+  - atraksiWisata: String
+  - fasilitas: String
+  - destinasi: String
+  - deskripsi: String
+  - namaPengelola: String
+  - noPengelola: String
+  - hariBuka: String
+  - jamBuka: String
+  - jamTutup: String
+  - foto: String
+  - sumberFoto: String
+  - lat: String
+  - lng: String
+  - rekomendasi: int
+  - status: String
+  - createdAt: DateTime
+  - updatedAt: DateTime
+  - commentAtraksiCount: int
+  - likeAtraksiCount: int
+  - user: User
+  - selfLiked: bool?
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class WisataBudayaResponseModel {
+  - data: List<Budaya>
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+
+class Budaya {
+  - id: String
+  - idKategori: String
+  - idUser: String
+  - nama: String
+  - alamat: String
+  - atraksiWisata: String
+  - fasilitas: String
+  - destinasi: String
+  - deskripsi: String
+  - namaPengelola: String
+  - noPengelola: String
+  - hariBuka: String
+  - jamBuka: String
+  - jamTutup: String
+  - foto: String
+  - sumberFoto: String
+  - lat: String
+  - lng: String
+  - rekomendasi: int
+  - status: String
+  - createdAt: DateTime
+  - updatedAt: DateTime
+  - commentAtraksiCount: int
+  - likeAtraksiCount: int
+  - user: User
+  - selfLiked: bool?
+  + fromJson()
+  + toJson()
+  + fromMap()
+  + toMap()
+}
+@enduml
