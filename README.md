@@ -1,16 +1,30 @@
 # e_ktg_mobile
 
-A new Flutter project.
+Aplikasi mobile berbasis Flutter yang dikembangkan sebagai bagian dari proyek *Electronic Ketapang Travel Guide*.
 
-## Getting Started
+## Deskripsi
 
-This project is a starting point for a Flutter application.
+**e_ktg_mobile** adalah aplikasi panduan wisata berbasis Android yang dirancang untuk mempromosikan destinasi pariwisata lokal di Kabupaten Ketapang, Kalimantan Barat. Aplikasi ini menyajikan informasi tempat wisata, foto, dan lokasi, serta fitur interaktif yang mendukung pengalaman pengguna dalam menjelajah wisata daerah.
 
-A few resources to get you started if this is your first Flutter project:
+## Fitur Utama
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Daftar destinasi wisata lokal yang terintegrasi dengan backend website
+- Tampilan galeri dan informasi lengkap tiap destinasi
+- Navigasi berbasis kategori tempat
+- Dukungan tampilan interaktif dan UI responsif
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Teknologi yang Digunakan
+
+- Flutter & Dart
+- HTTP untuk komunikasi API
+- Firebase (jika digunakan)
+- UI/UX responsif menggunakan `Material Design`
+
+## Cara Menjalankan Proyek
+
+1. Pastikan Flutter SDK telah terinstal.
+2. Clone repository ini:
+
+   ```bash
+   git clone https://github.com/username/e_ktg_mobile.git
+   cd e_ktg_mobile
